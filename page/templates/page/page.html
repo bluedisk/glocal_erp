@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if page.featured %}
+{#        <div class="image-header" style="background-image: url('{{ page.featured.url }}');">#}
+{#            <div class="container">#}
+{##}
+{#                <div class="header-title">{{ page.title }}</div>#}
+{#                <div class="header-subtitle">{{ page.subtitle }}</div>#}
+{#            </div>#}
+{#        </div>#}
+
+        <section class="breadcrumbs-area ptb-110 bg-opacity bg-relative" style="background-image: url({{ page.featured.url }});">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="breadcrumbs">
+                            <h2 class="page-title">{{ page.title }}</h2>
+
+                            <ul>
+                                <li>
+                                    <a class="active" href="#">Home</a>
+                                </li>
+                                <li>{{ page.title }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% else %}
+
+        <section class="breadcrumbs-area bg-3 ptb-110 bg-opacity bg-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="breadcrumbs">
+                            <h2 class="page-title">{{ page.title }}</h2>
+
+                            <ul>
+                                <li>
+                                    <a class="active" href="#">Home</a>
+                                </li>
+                                <li>{{ page.title }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <div class="event-area ptb-110">
+    <div class="container">
+{{ content|safe }}
+    </div>
+    </div>
+<div class="clearfix"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        {{ page.script|safe }}
+    </script>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/page.css">
+    <style>
+        {{ page.style|safe }}
+    </style>
+{% endblock %}

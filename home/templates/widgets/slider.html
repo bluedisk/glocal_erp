@@ -1,0 +1,35 @@
+{% load static %}
+{% load slide %}
+
+        <!-- Start of slider area -->
+        <div class="slider-area">
+            <div class="slider-active">
+                {% load_slide as slides %}
+                {% for slide in slides %}
+                <div class="slider-all">
+                    {% if slide.image %}
+                    <img src="{{ slide.image.url }}" alt="">
+                    {% else %}
+                    <img src="{% static 'images/slider/1.jpg' %}" alt="">
+                    {% endif %}
+                    <div class="slider-text-wrapper">
+                        <div class="table">
+                            <div class="table-cell">
+                                <div class="slider-text animated">
+                                    <h1>{{ slide.title|safe }}</h1>
+                                    <p>{{ slide.subtitle|safe }}</p>
+                                    {% if slide.button_name %}
+                                    <a class="button extra-small mb-20" href="{{ slide.button_link|default_if_none:'#' }}">
+                                        <span>{{ slide.button_name }}</span>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <!-- End of slider area -->

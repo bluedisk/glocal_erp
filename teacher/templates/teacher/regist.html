@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block content %}
+<div class="page-header dark larger larger-desc mb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>선생님 등록</h1>
+                <p class="page-header-desc">글로컬 방과 후 학교 선생님으로 활동하시기 위해서는 등록이 필요합니다.</p>
+            </div><!-- End .col-md-6 -->
+            <div class="col-md-6">
+                <ol class="breadcrumb">
+                    <li><a href="/" class="text-black">Home</a></li>
+                    <li class="active">방과 후 학교 선생님 등록</li>
+                </ol>
+            </div><!-- End .col-md-6 -->
+        </div><!-- End .row -->
+    </div><!-- End .container -->
+</div><!-- End .page-header -->
+
+<div class="container">
+
+    <form method="post" style="max-width:600px; margin:auto" enctype="multipart/form-data">
+        <h2>등록 안내</h2>
+    <p>
+    사단법인 글로컬 드림아카데미에서는 2018년 방과후 지도사를 모집합니다.<br/>
+    다음 HWP 양식을 다운로드 해서 작성 후 아래 정보와 함께 업로드 해주세요.
+    </p>
+        <a href="/static/documents/2018년도 방과후학교 지도사.hwp" class="btn btn-lg btn-primary">양식 다운로드 받기</a>
+
+        <hr/>
+
+    {% csrf_token %}
+        <h3>기본사항</h3>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ form.name|bootstrap }}
+            </div>
+            <div class="col-sm-6">
+                {{ form.birth|bootstrap }}
+            </div>
+            <div class="col-sm-6">
+                {{ form.email|bootstrap }}
+            </div>
+            <div class="col-sm-6">
+                {{ form.phone|bootstrap }}
+            </div>
+            <div class="col-sm-6">
+                {{ form.subject1|bootstrap }}
+            </div>
+            <div class="col-sm-6">
+                {{ form.subject2|bootstrap }}
+            </div>
+        </div>
+
+        <h3>주소</h3>
+        <div class="row">
+            <div class="col-sm-9 mb-20">
+                <div class="form-group{% if form.addr1.error %} has-error{% endif %}">
+                    <input type="text" class="form-control" name="addr1" value="{{ form.addr1.value|default_if_none:"" }}" />
+                    <span class="help-block">{{ form.postcode.error }}</span>
+                </div>
+            </div>
+            <div class="col-sm-3 mb-10">
+                <button class="btn btn-primary" id="search">주소 찾기</button>
+                <input type="hidden" name="postcode" value="{{ form.postcode.value|default_if_none:"" }}" />
+                <span class="help-block{% if form.postcode.error %} text-danger{% endif %}">{{ form.postcode.error }}</span>
+            </div>
+            <div class="col-sm-12" id="search_box">
+            </div>
+            <div class="col-sm-12">
+                {{ form.addr2|bootstrap }}
+            </div>
+        </div>
+        <h3>파일 업로드</h3>
+
+        <div class="row mb-50">
+            <div class="col-sm-6">
+                {{ form.portrait|bootstrap }}
+            </div>
+            <div class="col-sm-6">
+                {{ form.document|bootstrap }}
+            </div>
+        </div>
+        <div class="row mb-50">
+            <div class="col-sm-12">
+                <button class="btn btn-lg btn-block btn-danger">전송하기</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+    jQuery(function($) {
+       $("#search").on('click', function(e) {
+           e.preventDefault();
+
+           new daum.Postcode({
+               width: "100%",
+               oncomplete: function(data){
+                   $("input[name='postcode']").val(data.zonecode);
+                   $("input[name='addr1']").val(data.autoRoadAddress);
+                   $("input[name='addr2']").val(data.buildingName+" ");
+                   $("input[name='addr2']").focus();
+               }
+           }).embed($(search_box)[0], {
+               q: $("input[name='addr1']").val(),
+               autoClose: true,
+            });
+        });
+    });
+</script>
+{% endblock %}

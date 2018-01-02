@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block content %}
+<div class="page-header dark larger larger-desc mb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>선생님 등록</h1>
+                <p class="page-header-desc">글로컬 방과 후 학교 선생님으로 활동하시기 위해서는 등록이 필요합니다.</p>
+            </div><!-- End .col-md-6 -->
+            <div class="col-md-6">
+                <ol class="breadcrumb">
+                    <li><a href="/" class="text-black">Home</a></li>
+                    <li class="active">방과 후 학교 선생님 등록</li>
+                </ol>
+            </div><!-- End .col-md-6 -->
+        </div><!-- End .row -->
+    </div><!-- End .container -->
+</div><!-- End .page-header -->
+
+<div class="container">
+
+    <div style="max-width:600px; margin:auto">
+        <h2>등록 결과</h2>
+    <p>
+    다음과 같이 등록 되었습니다. 잘못된 내용이 있을 경우 브라우저에서 뒤로가기 버튼을 누르시고 다시 등록해주세요.
+    </p>
+
+    {% csrf_token %}
+        <h3>기본사항</h3>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <strong>성함</strong> : {{ teacher.name }}
+            </div>
+            <div class="col-sm-6">
+                <strong>생년월일</strong> : {{ teacher.birth }}
+            </div>
+            <div class="col-sm-6">
+                <strong>이메일</strong> : {{ teacher.email }}
+            </div>
+            <div class="col-sm-6">
+                <strong>전화번호</strong> : {{ teacher.phone }}
+            </div>
+            <div class="col-sm-6">
+                <strong>지도과목 1</strong> : {{ teacher.subject1 }}
+            </div>
+            <div class="col-sm-6">
+                <strong>지도과목 2</strong> : {{ teacher.subject2 }}
+            </div>
+        </div>
+
+        <h3>주소</h3>
+        <div class="row">
+            <div class="col-sm-9 mb-20">
+                <strong>우편번호</strong> : {{ teacher.postcode }} <br/>
+                <strong>주소</strong> : {{ teacher.addr1 }} <br/>
+                <strong>세부주소</strong> : {{ teacher.addr2 }} <br/>
+            </div>
+        </div>
+        <h3>파일 업로드</h3>
+
+        <div class="row mb-50">
+            <div class="col-sm-6">
+                <img src="{{ teacher.portrait.url }}" class="img img-responsive" />
+            </div>
+            <div class="col-sm-6">
+                <strong>등록 파일명</strong> : {{ teacher.document.name }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

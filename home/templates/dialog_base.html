@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <!-- Start page content -->
+        <section class="service-area ptb-110 bg-3 bg-relative page-title-fix">
+            <!-- Demo Section    -->
+            <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-push-5">
+                            <div class="service-all white-bg" >
+                                <h2>{% block head_title %}{% endblock %}</h2>
+                                {% block body %}{% endblock %}
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+{% endblock %}
