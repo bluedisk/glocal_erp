@@ -22,15 +22,16 @@
 <div class="container">
 
     <div style="max-width:600px; margin:auto">
-        <h2>등록 결과</h2>
+        <h2 class="text-success">등록 완료!</h2>
     <p>
     다음과 같이 등록 되었습니다. 잘못된 내용이 있을 경우 브라우저에서 뒤로가기 버튼을 누르시고 다시 등록해주세요.
     </p>
+        <hr />
 
     {% csrf_token %}
-        <h3>기본사항</h3>
+        <h4>기본사항</h4>
 
-        <div class="row">
+        <div class="row mb-30">
             <div class="col-sm-6">
                 <strong>성함</strong> : {{ teacher.name }}
             </div>
@@ -51,7 +52,7 @@
             </div>
         </div>
 
-        <h3>주소</h3>
+        <h4>주소</h4>
         <div class="row">
             <div class="col-sm-9 mb-20">
                 <strong>우편번호</strong> : {{ teacher.postcode }} <br/>
@@ -59,16 +60,18 @@
                 <strong>세부주소</strong> : {{ teacher.addr2 }} <br/>
             </div>
         </div>
-        <h3>파일 업로드</h3>
+        <h4>파일 업로드</h4>
 
         <div class="row mb-50">
             <div class="col-sm-6">
+                <strong>증명사진</strong><br/>
                 <img src="{{ teacher.portrait.url }}" class="img img-responsive" />
             </div>
             <div class="col-sm-6">
                 <strong>등록 파일명</strong> : {{ teacher.document.name }}
             </div>
         </div>
+        <a href="/" class="btn btn-lg btn-primary btn-block mb-50">확인</a>
     </div>
 </div>
 {% endblock %}

@@ -56,16 +56,16 @@
 
         <h3>주소</h3>
         <div class="row">
-            <div class="col-sm-9 mb-20">
-                <div class="form-group{% if form.addr1.error %} has-error{% endif %}">
+            <div class="col-sm-9 ">
+                <div class="form-group{% if form.addr1.errors %} has-error{% endif %}">
                     <input type="text" class="form-control" name="addr1" value="{{ form.addr1.value|default_if_none:"" }}" />
-                    <span class="help-block">{{ form.postcode.error }}</span>
+                    <span class="help-block">{{ form.addr1.errors }}</span>
                 </div>
             </div>
-            <div class="col-sm-3 mb-10">
-                <button class="btn btn-primary" id="search">주소 찾기</button>
+            <div class="col-sm-3 ">
+                <button class="btn btn-primary{% if form.postcode.errors %} btn-danger{% endif %}" id="search">주소 찾기</button>
                 <input type="hidden" name="postcode" value="{{ form.postcode.value|default_if_none:"" }}" />
-                <span class="help-block{% if form.postcode.error %} text-danger{% endif %}">{{ form.postcode.error }}</span>
+                <span class="help-block{% if form.postcode.errors %} text-danger{% endif %}">{{ form.postcode.errors }}</span>
             </div>
             <div class="col-sm-12" id="search_box">
             </div>
@@ -101,9 +101,10 @@
 
            new daum.Postcode({
                width: "100%",
+               autoMapping: true,
                oncomplete: function(data){
                    $("input[name='postcode']").val(data.zonecode);
-                   $("input[name='addr1']").val(data.autoRoadAddress);
+                   $("input[name='addr1']").val(data.roadAddress || data.autoRoadAddress);
                    $("input[name='addr2']").val(data.buildingName+" ");
                    $("input[name='addr2']").focus();
                }

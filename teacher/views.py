@@ -16,6 +16,7 @@ def regist(request):
         if form.is_valid():
             teacher = form.save()
             return render(request, "teacher/result.html", {"teacher": teacher})
+    else:
+        form = TeacherForm()
 
-    form = TeacherForm()
     return render(request, "teacher/regist.html", {"form": form})
