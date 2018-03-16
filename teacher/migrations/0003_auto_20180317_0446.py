@@ -66,11 +66,11 @@ def data_migration(apps, schema_editor):
         subject2 = ex.split(teacher.subject2 or "")
 
         for subject in [s.strip() for s in subject1 + subject2]:
-            if subject not in subject_objs:
-                raise ValueError("unknown subject ", subject)
-
             if subject in ('', '-'):
                 continue
+
+            if subject not in subject_objs:
+                raise ValueError("unknown subject ", subject)
 
             teacher.subjects.add(subject_objs[subject])
 
