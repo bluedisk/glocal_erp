@@ -48,7 +48,15 @@ class Subject(models.Model):
         return self.name
 
     name = models.CharField("수업명", max_length=30)
-    cate = models.ForeignKey("SubjectCategory", default=4)
+    cate = models.ForeignKey("SubjectCategory")
+
+    def save(self,  *args, **kwargs):
+        try:
+            self.cate
+        except:
+            self.cate = SubjectCategory.objects.get(name='미분류')
+
+        super().save(*args, **kwargs)
 
 
 class SubjectCategory(models.Model):
