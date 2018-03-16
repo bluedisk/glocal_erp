@@ -1,6 +1,29 @@
 from django.shortcuts import render
 from django.forms import ModelForm
-from teacher.models import Teacher
+from teacher.models import Teacher, Subject, SubjectCategory
+from dal import autocomplete
+
+
+class SubjectCategoryAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+
+        qs = SubjectCategory.objects.all()
+
+        if self.q:
+            qs = qs.filter(name__istartswith=self.q)
+
+        return qs
+
+
+class SubjectAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+
+        qs = Subject.objects.all()
+
+        if self.q:
+            qs = qs.filter(name__istartswith=self.q)
+
+        return qs
 
 
 class TeacherForm(ModelForm):
