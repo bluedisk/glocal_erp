@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-14 04:47+0900\n"
+"POT-Creation-Date: 2018-03-18 22:19+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,10 +65,12 @@ msgid ""
 msgstr ""
 "%(site_name)s 회원가입 이메일 인증 \n"
 "\n"
-"안녕하세요. 그린보트 회원가입을 계속 진행하시려면, 아래 링크를 클릭해주시기 바랍니다. \n"
+"안녕하세요. 그린보트 회원가입을 계속 진행하시려면, 아래 링크를 클릭해주시기 "
+"바랍니다. \n"
 "%(activate_url)s\n"
 "\n"
-"위의 링크가 정상적으로 동작하지 않는 경우에는 링크 주소를 복사하여 웹브라우저 주소창에 붙여넣기 해주시기 바랍니다.\n"
+"위의 링크가 정상적으로 동작하지 않는 경우에는 링크 주소를 복사하여 웹브라우"
+"저 주소창에 붙여넣기 해주시기 바랍니다.\n"
 
 #: home/templates/account/email/email_confirmation_subject.txt:1
 #, python-format
@@ -94,8 +96,8 @@ msgid ""
 "This is the email notification to confirm your password has been changed on "
 "%(now)s."
 msgstr ""
-"비밀번호 변경 알림 메일입니다. "
-"%(now)s 기준으로 비밀번호 변경이 확인 되었습니다."
+"비밀번호 변경 알림 메일입니다. %(now)s 기준으로 비밀번호 변경이 확인 되었습니"
+"다."
 
 #: home/templates/account/email/password_change_subject.txt:1
 msgid "Change password email notification"
@@ -112,8 +114,8 @@ msgid ""
 "%(password_reset_url)s\n"
 msgstr ""
 "%(site_name)s 사이트에서 사용자에 의해 비밀번호 초기화가 요청되었습니다\n"
-"비밀번호 초기화를 요청한 적이 없으시다면 이 이메일을 무시하셔도 안전합니다. 비밀번호 초기화를 "
-"진행하시려면 아래 링크를 눌러주세요.\n"
+"비밀번호 초기화를 요청한 적이 없으시다면 이 이메일을 무시하셔도 안전합니다. "
+"비밀번호 초기화를 진행하시려면 아래 링크를 눌러주세요.\n"
 "\n"
 "%(password_reset_url)s\n"
 
@@ -130,7 +132,8 @@ msgstr "이메일 확인"
 #: home/templates/account/email_confirm.html:14
 #, python-format
 msgid "Confirm email address <b>%(email)s</b>?"
-msgstr "가입하신 이메일 주소를 확인해주세요. 다음 주소가 맞습니까? <b>%(email)s</b> "
+msgstr ""
+"가입하신 이메일 주소를 확인해주세요. 다음 주소가 맞습니까? <b>%(email)s</b> "
 
 #: home/templates/account/email_confirm.html:15
 msgid "Confirm"
@@ -151,8 +154,9 @@ msgid ""
 msgstr ""
 "이메일 주소 <b>%(email)s</b> 로 확인 메일이 발송 되었습니다. 이메일에 포함된 "
 "링크 주소를 이용해서 가입 절차를 완료해 주세요. 만약 이메일이 오지 않는 경우 "
-"잠시 기사려 보신 후 그래도 오지 않는다면 다음 주소로 문의 부탁드립니다. <a href=\"mailto:%(THEME_CONTACT_EMAIL)s"
-"\">%(THEME_CONTACT_EMAIL)s</a>. <a href=\"mailto:greenboat@greenfund.org\">greenboat@greenfund.org</a>."
+"잠시 기사려 보신 후 그래도 오지 않는다면 다음 주소로 문의 부탁드립니다. <a "
+"href=\"mailto:%(THEME_CONTACT_EMAIL)s\">%(THEME_CONTACT_EMAIL)s</a>. <a href="
+"\"mailto:greenboat@greenfund.org\">greenboat@greenfund.org</a>."
 
 #: home/templates/account/email_confirmation_sent.html:11
 msgid "Go back"
@@ -216,8 +220,8 @@ msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
-"이메일 주소를 잊으셨나요? 아래 칸에 이메일 주소를 입력하시면"
-"비밀번호를 초기화 할 수 있는 복구 메일을 보내드립니다."
+"이메일 주소를 잊으셨나요? 아래 칸에 이메일 주소를 입력하시면비밀번호를 초기"
+"화 할 수 있는 복구 메일을 보내드립니다."
 
 #: home/templates/account/password_reset.html:22
 msgid "Reset my password"
@@ -230,7 +234,8 @@ msgid ""
 "\"mailto:%(THEME_CONTACT_EMAIL)s\">%(THEME_CONTACT_EMAIL)s</a>."
 msgstr ""
 "비밀번호 초기화에 문제가 있으시다면 다음 주소로 문의 부탁드립니다. <a href="
-"\"mailto:%(THEME_CONTACT_EMAIL)s\">%(THEME_CONTACT_EMAIL)s</a>. <a href=\"mailto:greenboat@greenfund.org\">greenboat@greenfund.org</a>."
+"\"mailto:%(THEME_CONTACT_EMAIL)s\">%(THEME_CONTACT_EMAIL)s</a>. <a href="
+"\"mailto:greenboat@greenfund.org\">greenboat@greenfund.org</a>."
 
 #: home/templates/account/password_reset_sent.html:6
 #: home/templates/account/password_reset_sent.html:9
@@ -244,9 +249,10 @@ msgid ""
 "try resending or contact us at <a href=\"mailto:%(THEME_CONTACT_EMAIL)s\">"
 "%(THEME_CONTACT_EMAIL)s</a>."
 msgstr ""
-"이메일이 발송 되었습니다. 몇분안에 메일이 오지 않을 경우 초기화 메일 다시 보내기를 시도하시거나 "
-"다음 이메일 주소로 문의 부탁드립니다. <a href=\"mailto:%(THEME_CONTACT_EMAIL)s\">"
-"%(THEME_CONTACT_EMAIL)s</a>. <a href=\"mailto:greenboat@greenfund.org\">greenboat@greenfund.org</a>."
+"이메일이 발송 되었습니다. 몇분안에 메일이 오지 않을 경우 초기화 메일 다시 보"
+"내기를 시도하시거나 다음 이메일 주소로 문의 부탁드립니다. <a href=\"mailto:"
+"%(THEME_CONTACT_EMAIL)s\">%(THEME_CONTACT_EMAIL)s</a>. <a href=\"mailto:"
+"greenboat@greenfund.org\">greenboat@greenfund.org</a>."
 
 #: home/templates/account/password_reset_sent.html:20
 msgid "Resend"
@@ -259,9 +265,10 @@ msgid ""
 "minutes, contact us at <a href=\"mailto:%(THEME_CONTACT_EMAIL)s\">"
 "%(THEME_CONTACT_EMAIL)s</a>."
 msgstr ""
-"비밀번호 초기화 메일을 재발송 했습니다. 몇분안에 메일이 도착하지 않을 경우 "
-"다음 이메일 주소로 문의 부탁드립니다. <a href=\"mailto:%(THEME_CONTACT_EMAIL)s\">"
-"%(THEME_CONTACT_EMAIL)s</a>. <a href=\"mailto:greenboat@greenfund.org\">greenboat@greenfund.org</a>."
+"비밀번호 초기화 메일을 재발송 했습니다. 몇분안에 메일이 도착하지 않을 경우 다"
+"음 이메일 주소로 문의 부탁드립니다. <a href=\"mailto:%(THEME_CONTACT_EMAIL)s"
+"\">%(THEME_CONTACT_EMAIL)s</a>. <a href=\"mailto:greenboat@greenfund.org"
+"\">greenboat@greenfund.org</a>."
 
 #: home/templates/account/password_reset_token.html:6
 #: home/templates/account/password_reset_token.html:12
@@ -279,8 +286,8 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a <a href=\"%(url)s\">new password reset</a>."
 msgstr ""
-"잘못된 비밀번호 초기화 링크 입니다, 이미 사용 된 링크일 가능성이 있습니다."
-"다음 링크에서 다시 요청해 주세요. <a href=\"%(url)s\">new password reset</a>."
+"잘못된 비밀번호 초기화 링크 입니다, 이미 사용 된 링크일 가능성이 있습니다.다"
+"음 링크에서 다시 요청해 주세요. <a href=\"%(url)s\">new password reset</a>."
 
 #: home/templates/account/signup.html:23
 msgid "Already have an account?"
@@ -298,200 +305,154 @@ msgstr "가입 코드가 있으신 경우만 가입이 가능합니다"
 msgid "Your signup code..."
 msgstr "가입 코드를 입력해주세요"
 
-#: forms.py:28 forms.py:108
+#: views.py:39
+msgid "Create \"%(new_value)s\""
+msgstr "\"%(new_value)s\" 과목을 등록하려면 클릭하세요"
+
 msgid "Username"
 msgstr "아이디"
 
-#: forms.py:34 forms.py:80
 msgid "Password"
 msgstr "비밀번호"
 
-#: forms.py:38
 msgid "Password (again)"
 msgstr "비밀번호(확인)"
 
-#: forms.py:42 forms.py:123 forms.py:169 forms.py:198
 msgid "Email"
 msgstr "이메일"
 
-#: forms.py:53
 msgid "Usernames can only contain letters, numbers and underscores."
 msgstr "아이디는 영문자와 숫자, 언더바(_)만 포함 가능합니다."
 
-#: forms.py:61
 msgid "This username is already taken. Please choose another."
 msgstr "이미 사용중인 아이디 입니다. 다른 아이디로 시도해 주세요."
 
-#: forms.py:68 forms.py:218
 msgid "A user is registered with this email address."
 msgstr "이미 가입 된 이메일 주소 입니다."
 
-#: forms.py:73 forms.py:163 forms.py:192
 msgid "You must type the same password each time."
 msgstr "비밀번호 확인이 일치하지 않습니다"
 
-#: forms.py:84
 msgid "Remember Me"
 msgstr "아이디 기억하기"
 
-#: forms.py:97
 msgid "This account is inactive."
 msgstr "비활성화된 사용자입니다."
 
-#: forms.py:109
 msgid "The username and/or password you specified are not correct."
 msgstr "가입되지 않은 아이디 또는 잘못된 비밀번호입니다."
 
-#: forms.py:124
 msgid "The email address and/or password you specified are not correct."
 msgstr "가입되지 않은 이메일 주소 또는 잘못된 비밀번호 입니다."
 
-#: forms.py:139
 msgid "Current Password"
 msgstr "현재 비밀번호"
 
-#: forms.py:143 forms.py:181
 msgid "New Password"
 msgstr "새 비밀번호"
 
-#: forms.py:147 forms.py:185
 msgid "New Password (again)"
 msgstr "새 비밀번호（확인）"
 
-#: forms.py:157
 msgid "Please type your current password."
 msgstr "현재 비밀번호를 입력해 주세요."
 
-#: forms.py:174
 msgid "Email address can not be found."
 msgstr "이메일 주소를 찾을 수 없습니다."
 
-#: forms.py:200
 msgid "Timezone"
 msgstr "시간대"
 
-#: forms.py:206
 msgid "Language"
 msgstr "언어"
 
-#: models.py:34
 msgid "user"
 msgstr "사용자"
 
-#: models.py:35
 msgid "timezone"
 msgstr "시간대"
 
-#: models.py:37
 msgid "language"
 msgstr "언어"
 
-#: models.py:132
 msgid "code"
 msgstr "코드"
 
-#: models.py:133
 msgid "max uses"
 msgstr "최대 사용 횟수"
 
-#: models.py:134
 msgid "expiry"
 msgstr "만료"
 
-#: models.py:137
 msgid "notes"
 msgstr "기타"
 
-#: models.py:138
 msgid "sent"
 msgstr "전송"
 
-#: models.py:139
 msgid "created"
 msgstr "생성일자"
 
-#: models.py:140
 msgid "use count"
 msgstr "사용 횟수"
 
-#: models.py:143
 msgid "signup code"
 msgstr "가입 코드"
 
-#: models.py:144
 msgid "signup codes"
 msgstr "가입 코드 목록"
 
-#: models.py:250
 msgid "verified"
 msgstr "확인됨"
 
-#: models.py:251
 msgid "primary"
 msgstr "주"
 
-#: models.py:256
 msgid "email address"
 msgstr "이메일 주소"
 
-#: models.py:257
 msgid "email addresses"
 msgstr "이메일 주소 목록"
 
-#: models.py:306
 msgid "email confirmation"
 msgstr "이메일 확인"
 
-#: models.py:307
 msgid "email confirmations"
 msgstr "이메일 확인 목록"
 
-#: models.py:356
 msgid "date requested"
 msgstr "요청된 일자"
 
-#: models.py:357
 msgid "date expunged"
 msgstr "지워진 일자"
 
-#: models.py:360
 msgid "account deletion"
 msgstr "계정 삭제"
 
-#: models.py:361
 msgid "account deletions"
 msgstr "계정 삭제 목록"
 
-#: views.py:42
-#, python-brace-format
 msgid "Confirmation email sent to {email}."
 msgstr " {email}로 확인 메일이 발송되었습니다."
 
-#: views.py:46
-#, python-brace-format
 msgid "The code {code} is invalid."
 msgstr "{code} 는 잘못된 코드입니다"
 
-#: views.py:381
-#, python-brace-format
 msgid "You have confirmed {email}."
 msgstr "{email}　이메일 확인 됨"
 
-#: views.py:454 views.py:590
 msgid "Password successfully changed."
 msgstr "비밀번호가 성공적으로 변경되었습니다."
 
-#: views.py:681
 msgid "Account settings updated."
 msgstr "아이디 설정이 변경되었습니다."
 
-#: views.py:765
-#, python-brace-format
 msgid ""
 "Your account is now inactive and your data will be expunged in the next "
 "{expunge_hours} hours."
 msgstr ""
-"아이디가 비활성화 되었습니다. 데이터는 약 {expunge_hours} 시간 후에 파기됩니다."
+"아이디가 비활성화 되었습니다. 데이터는 약 {expunge_hours} 시간 후에 파기됩"
+"니다."
 
 msgid "Password histories"
 msgstr "비밀번호 기록 정보"
