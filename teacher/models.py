@@ -48,7 +48,7 @@ class Subject(models.Model):
         return self.name
 
     name = models.CharField("수업명", max_length=30)
-    cate = models.ForeignKey("SubjectCategory")
+    cate = models.ForeignKey("SubjectCategory",  verbose_name='과목 분류')
 
     def save(self,  *args, **kwargs):
         try:

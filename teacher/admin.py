@@ -1,5 +1,6 @@
 from zipfile import ZipFile
 
+import os
 from django.contrib import admin, messages
 from django.contrib.admin.decorators import register
 from django import forms
@@ -31,12 +32,12 @@ class TeacherAdmin(admin.ModelAdmin):
     form = SubjectForm
 
     list_display = ['name', 'birth', 'subjects_summary',  'phone', 'create_at']
-    list_filter = ['subjects__cate']
+    list_filter = ['subjects__cate', 'subjects']
 
     list_per_page = 16
 
     search_fields = ['name', 'birth', 'phone', 'subjects__name']
-    actions = ['download_xlsx']
+    actions = ['download_xlsx', 'export_attachments']
 
     def download_xlsx(self, request, queryset):
         wb = Workbook()
@@ -88,11 +89,45 @@ class TeacherAdmin(admin.ModelAdmin):
 
     download_xlsx.short_description = u'선택한 선생님 정보 엑셀(xlsx)로 다운받기'
 
+    def add_attachment(self, zipfile, fileobj, filename):
+        try:
+            fileobj.open()
+            data = fileobj.read()
+            fileobj.close()
+
+            _, ext = os.path.splitext(os.path.basename(fileobj.name))
+            zipfile.writestr("%s%s" % (filename, ext), data)
+
+        except FileNotFoundError:
+            pass
+
+    def export_attachments(self, request, queryset):
+
+        now = timezone.now()
+
+        compressed = BytesIO()
+        with ZipFile(compressed, 'w') as zf:
+            for teacher in queryset.all():
+                if teacher.portrait:
+                    self.add_attachment(zf, teacher.portrait, '%s_증명사진' % teacher.name)
+
+                if teacher.document:
+                    self.add_attachment(zf, teacher.document, '%s_신청서류' % teacher.name)
+
+        # make response
+        response = HttpResponse(content_type='application/zip')
+        response['Content-Disposition'] = 'attachment; filename="attachments_%s.zip"' % now.strftime("%Y%m%d")
+
+        response.write(compressed.getvalue())
+        return response
+
+    export_attachments.short_description = "선택된 선생님들 첨부파일 다운받기"
+
 
 class MergeForm(forms.ModelForm):
     class Meta:
         model = Subject
-        fields = ['name', 'cate']
+        fields = ['name', 'cate', ]
 
     do_action = forms.BooleanField(initial=True, widget=forms.HiddenInput())
     action = forms.CharField(initial='merge_action', widget=forms.HiddenInput())
