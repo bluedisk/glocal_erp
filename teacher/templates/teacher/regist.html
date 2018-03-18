@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load bootstrap %}
+{% load static %}
 
 {% block content %}
 <div class="page-header dark larger larger-desc mb-50">
@@ -47,10 +48,7 @@
                 {{ form.phone|bootstrap }}
             </div>
             <div class="col-sm-6">
-                {{ form.subject1|bootstrap }}
-            </div>
-            <div class="col-sm-6">
-                {{ form.subject2|bootstrap }}
+                {{ form.subjects|bootstrap }}
             </div>
         </div>
 
@@ -115,4 +113,6 @@
         });
     });
 </script>
+
+{{ form.media }}
 {% endblock %}

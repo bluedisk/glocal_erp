@@ -11,18 +11,18 @@ class Teacher(models.Model):
     def __str__(self):
         return "%s - %s" % (self.name, self.birth)
 
-    def subjects_desc(self):
+    def subjects_summary(self):
         return ", ".join([s.name for s in self.subjects.all()])
 
-    subjects_desc.short_description = '과목 목록'
+    def address_summary(self):
+        return "우:%s %s %s" % (self.postcode, self.addr1, self.addr2)
+
+    subjects_summary.short_description = '과목 목록'
 
     name = models.CharField("강사명", max_length=30)
     birth = models.CharField("생년월일", max_length=30)
 
-    subject1 = models.CharField("지도 과목 1", max_length=30)
-    subject2 = models.CharField("지도 과목 2", max_length=30, null=True, blank=True)
-
-    subjects = models.ManyToManyField("Subject")
+    subjects = models.ManyToManyField("Subject", verbose_name='담당과목')
 
     postcode = models.CharField("우편번호", max_length=10)
     addr1 = models.CharField("주소", max_length=200)
