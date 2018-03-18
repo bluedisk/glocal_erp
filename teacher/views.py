@@ -1,9 +1,11 @@
-import re
 from django.core.exceptions import ValidationError
 from django.shortcuts import render
 from django.forms import ModelForm
+from django.contrib.auth import authenticate, login
+
 from teacher.models import Teacher, Subject, SubjectCategory
 from dal import autocomplete
+import re
 
 
 class SubjectCategoryAutocomplete(autocomplete.Select2QuerySetView):
@@ -59,6 +61,10 @@ class TeacherForm(ModelForm):
 
 
 def regist(request):
+
+    if not request.user.is_authenticated:
+        user = authenticate(username='anonymous', password='dlrauddlraud2000Tkfqkq')
+        login(request, user)
 
     if request.method == 'POST':
         form = TeacherForm(request.POST, request.FILES)
